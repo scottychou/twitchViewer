@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/stylesheet.min.css">
+  <meta charset="utf-8">
+  <title>My Twitch Viewer</title>
+</head>
+<body>
+  <div id="bgColor">
+    <header id="topHeader" class="clearfix">
+      <div id="left-header">
+        <span class="toggle-text">SHOW:</span>
+        <div class="toggle-buttons">
+          <button class="toggle-on btn green">online only</button>
+          <button class="toggle-off btn red">offline only</button>
+          <button class="toggle-all btn purple">all</button>
+        </div>
+
+      </div>
+      <div id="right-header">
+        TWITCH STREAMERS
+      </div>
+    </header>
+
+    <aside id="streamerSideBar">
+      <ul class="online"></ul>
+      <ul class="offline"></ul>
+    </aside>
+
+    <aside id="defaultInfo">
+        PLEASE CLICK A STREAMER TO THE LEFT
+    </aside>
+
+    <aside id="streamInfo">
+
+      <div class="if-online">
+        <header id="channelHeaders">
+          <h1 class="channel-name"></h1>
+          <h1 class="stream-title"></h1>
+        </header>
+
+        <div class="the-middle clearfix">
+          <img class="game-logo" src="" alt="" />
+          <div id="streamStats">
+            <div class="preview-box">
+              <h1 class=preview-text>CLICK PREVIEW</h1>
+              <a class="stream-link" href="#"><img class="preview" src="" alt="" /></a>
+            </div>
+          </div>
+        </div>
+        <div id="theTable" class="clearfix">
+          <table>
+            <thead>
+              <tr>
+                <th>viewers</th>
+                <th>game</th>
+                <th>time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="viewers"></td>
+                <td class="game"></td>
+                <td class="stream-started"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="theTableSm">
+          <div class="sm-info">
+            <h1 class="table-label">viewers</h1>
+            <h1 class="stream-data-row viewers"></h1>
+            <h1 class="table-label">game</h1>
+            <h1 class="stream-data-row game"></h1>
+            <h1 class="table-label">time</h1>
+            <h1 class="stream-data-row stream-started"></h1>
+            <div class="images-sm clearfix">
+              <img class="game-logo" src="" alt="" />
+              <div class="preview-box">
+                <a class="stream-link" href="#"><img class="preview" src="" alt="" /></a>
+              </div>
+              <h1 class=preview-text>CLICK PREVIEW ABOVE TO VISIT STREAM</h1>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="if-offline">
+        <span class="offline-span">USER IS OFFLINE</span>
+      </div>
+      <div id="switch">
+        <i class="fa fa-arrow-circle-right click-switch"></i>
+      </div>
+
+
+    </aside>
+
+    <div id="xsBox">
+      <div id="switch2">
+        <i class="fa fa-arrow-circle-left click-switch"></i>
+      </div>
+      <div class="xs-info">
+        <header class="channel-headers">
+          <h1 class="channel-name"></h1>
+          <h1 class="stream-title"></h1>
+        </header>
+        <!-- <img class="game-logo" src="" alt="" /> -->
+
+        <h1 class="table-label">viewers</h1>
+        <h1 class="stream-data-row viewers"></h1>
+        <h1 class="table-label">game</h1>
+        <h1 class="stream-data-row game"></h1>
+        <h1 class="table-label">time</h1>
+        <h1 class="stream-data-row stream-started"></h1>
+
+        <div class="preview-box">
+          <a class="stream-link" href="#"><img class="preview" src="" alt="" /></a>
+        </div>
+        <h1 class=preview-text>CLICK PREVIEW ABOVE TO VISIT STREAM</h1>
+      </div>
+    </div>
+
+
+  <footer id=myFooter>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/scottychou"><i class="fa fa-twitter"></i></a>
+    <a href="https://github.com/scottychou"><i class="fa fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/scottychou"><i class="fa fa-linkedin"></i></a>
+    <p>© 2016 <a href="#">Scott Chou</a>. All rights reserved.</p>
+  </footer>
+</div>
+
+
+
+<!-- js scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="vendor/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/script.js"></script>
+<!-- <script src="js/gulpfile.js"></script> -->
+</body>
+</html>
