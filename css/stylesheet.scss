@@ -1,0 +1,564 @@
+$footerHeight : 70px;
+$headerHeight : 70px;
+$sidebarWidth : 300px;
+
+@font-face{
+  font-family: OpenSans;
+  src: url(../vendor/OpenSans-Regular.ttf);
+}
+@font-face{
+  font-family: Molot;
+  src: url(../vendor/Molot.otf);
+}
+
+
+html,
+body {
+  overflow-x:hidden;
+  height: 100%;
+  font-family: 'Playfair Display', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+#bgColor {
+    // background-color:white;
+    background: linear-gradient(to right, #2a0845,#6441A5);
+    height:100%;
+    // background-color: #b4ecb4;
+}
+#topHeader {
+  min-width: 950px;
+  #left-header{
+    position:relative;
+    box-sizing: border-box;
+    float:left;
+    width:$sidebarWidth;
+    height:$headerHeight;
+    background-color: #10151e;
+    color:white;
+    text-align: center;
+    padding-top: 10px;
+    // padding-bottom: 5px;
+    .toggle-text{
+      margin:5px auto;
+    }
+    .toggle-on,.toggle-off{
+      cursor: pointer;
+    }
+    .toggle-buttons {
+      left:0;
+      right:0;
+      position:absolute;
+      bottom:10px;
+    }
+    .btn {
+      border-radius: 5px;
+      font-size: 12px;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+    }
+    .green {
+      background-color: #2ecc71;
+      box-shadow: 0px 1px 0px 0px #15B358;
+    }
+    .green:hover {
+      background-color: #48E68B;
+    }
+    .red {
+      background-color: #e74c3c;
+      box-shadow: 0px 1px 0px 0px #CE3323;
+    }
+
+    .red:hover {
+      background-color: #FF6656;
+    }
+    .purple {
+      background-color: #9b59b6;
+      box-shadow: 0px 1px 0px 0px #82409D;
+    }
+
+    .purple:hover {
+      background-color: #B573D0;
+    }
+  }
+  #right-header{
+    float:left;
+    white-space: nowrap;
+    width:calc(100% - #{$sidebarWidth});
+    line-height: $headerHeight; //for vertical centering
+    height:$headerHeight;
+    color:white;
+    font-size:3.5em;
+    font-weight:bold;
+    background-color: #6441a5;
+    text-shadow: 2px 2px #000000;
+    text-align:center;
+  }
+}
+
+#streamerSideBar {
+  $streamerHeight: 50px;
+  position:fixed;
+  background-color: #10151e;
+  width:$sidebarWidth;
+  top: $headerHeight;
+  bottom: $footerHeight;
+  left: 0;
+  overflow-y:scroll;
+  overflow: auto;
+  // need to have overflow auto in order for the malibu plugin to work
+  li {
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border-top: 1px solid #222c3f;
+    border-bottom: 1px solid #07090d;
+    list-style:none;
+    height: $streamerHeight;
+    position: relative;
+    color: white;
+    .streamer-name {
+      top: ($streamerHeight) / 2;
+      transform:translateY(-50%);
+      position:absolute;
+      letter-spacing: 1px;
+      font-family: 'Playfair Display', sans-serif;
+      font-weight: bold;
+      font-size: 1em;
+      margin-left: 15px;
+    }
+    &.active {
+      background-color: #07090d;
+    }
+    img {
+      height: $streamerHeight;
+      width: $streamerHeight;
+    }
+    &:hover {
+      color: #cccccc;
+      border-bottom: 1px solid #10141e;
+      border-top: 1px solid #000000;
+      background-color: #07090d;
+    }
+  }
+  .streamer-light {
+    $streamerLightDiameter: 8px;
+    height: $streamerLightDiameter;
+    width: $streamerLightDiameter;
+    border-radius: 10px;
+    position: absolute;
+    top: ($streamerHeight - $streamerLightDiameter) / 2;
+    right: ($streamerHeight - $streamerLightDiameter) / 2;
+  }
+  .offline .streamer-light {
+    background-color: red;
+    box-shadow: 0 0 10px red;
+  }
+  .online .streamer-light {
+    background-color: lime;
+    box-shadow: 0 0 10px lime;
+  }
+}
+
+#defaultInfo {
+  position:fixed;
+  top: $headerHeight;
+  bottom: $footerHeight;
+  left: $sidebarWidth;
+  min-width: 272px;
+  right:0;
+  color:white;
+  font-size: 2.5em;
+  text-align: center;
+  line-height: 200px;
+  margin:0;
+}
+
+// table styles
+
+#streamInfo {
+  display:none;
+  position:fixed;
+  top: $headerHeight;
+  bottom: $footerHeight;
+  left: $sidebarWidth;
+  right:0;
+  #channelHeaders {
+    overflow: hidden;
+    background-color: #1d0140;
+    padding:0 20px;
+    position:relative;
+    border-radius: .5em;
+    text-align: center;
+    margin-bottom: 10px;
+    .channel-name {
+      font-family:"Molot";
+      letter-spacing: 0.3em;
+      padding-bottom:40px;
+      position:relative;
+      white-space: nowrap;
+      // color:#e7e6e8;
+      color:#6441a5;
+      font-size: 6em;
+      font-weight: bolder;
+      margin: 0 auto;
+    }
+    .stream-title {
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:5px;
+      font-size:1.5em;
+      white-space: nowrap;
+      border-radius: .5em;
+      margin: 0 auto;
+      text-align: center;
+      opacity: 0.5;
+      color:white;
+    }
+  }
+  .game-logo {
+    float:left;
+    margin:10px;
+    min-height:400px;
+  }
+  .if-offline {
+    display:none;
+    background:pink;
+    height:80%;
+    background-repeat:no-repeat;
+    background-size:cover;
+    .offline-span {
+      color:red;
+      font-size:3em;
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      text-align:center;
+      min-width: 213px;
+    }
+  }
+
+
+  #streamStats {
+    margin-top:10px;
+    float:left;
+    width:calc(100% - 315px);
+    max-height: 400px;
+    min-height:400px;
+    overflow: hidden;
+    .preview-box {
+      box-sizing: border-box;
+      max-height: 400px;
+      overflow:hidden;
+      .preview-text {
+        background: linear-gradient(#606062, #28262b);
+        border-radius: .2em;
+        box-shadow: 0 0 .5em #000;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 0 auto;
+        font-size:1.5em;
+        font-weight: bold;
+        color:white;
+        border-bottom: 1px black white;
+      }
+      .preview {
+        width:100%;
+        min-height: 380px;
+      }
+    }
+    #theTable {
+      position:relative;
+      left:0;
+      right:0;
+    }
+  }
+}
+table {
+  margin:0 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  width:calc(100% - 20px);
+  border-radius: .5em;
+  box-shadow: 0 0 .5em #000;
+}
+thead {
+  white-space: nowrap;
+  background: linear-gradient(#606062, #28262b);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+th {
+  white-space: nowrap;
+  color: white;
+  border-right: 1px white solid;
+  &:last-child {
+    border: none;
+  }
+}
+tr {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+td,th {
+  float: left;
+  text-align: center;
+  position: relative;
+  padding: .5em 1em;
+
+  &:nth-child(1) {
+    width: 20%;
+  }
+  &:nth-child(2) {
+    width: 35%;
+  }
+  &:nth-child(3) {
+    width: 25%;
+
+  }
+  td {
+    display: table-row;
+  }
+  &:before {
+    position: absolute;
+    top: -.5em; right: 0; bottom: -5em; left: 0;
+    content: ''
+  }
+  &:after {
+    position: absolute;
+    right: .5em;
+  }
+}
+#theTableSm,#switch,#xsBox {
+  display:none;
+}
+
+@media screen and (max-width: 951px) {
+
+  #theTable,#xsBox,.the-middle {
+    display:none;
+  }
+  #theTableSm {
+    display:block;
+    white-space: nowrap;
+    .table-label {
+      background: linear-gradient(#606062, #28262b);
+      border-radius: .2em;
+      box-shadow: 0 0 .5em #000;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      margin: 0 auto;
+      font-size:1.5em;
+      font-weight: bold;
+      color:white;
+      border-bottom: 1px black white;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    .stream-data-row {
+      background-color:#1d0140;
+      margin:0 auto;
+      text-align: center;
+      color:#705e86;
+    }
+    .game-logo {
+      width: 143px;
+      height: 200px;
+      min-height: 200px;
+      margin-top:0;
+      box-sizing: border-box;
+    }
+    .preview-box {
+      margin-top: 10px;
+      margin-right: 10px;
+      box-sizing: border-box;
+      max-height: 200px;
+      overflow:hidden;
+      .preview {
+        width:100%;
+        min-height: 200px;
+      }
+    }
+    .preview-text {
+      background-color: white;
+      font-size:1.2em;
+      text-align: center;
+      white-space: normal;
+    }
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .sm-info ,#channelHeaders {
+    display:none;
+  }
+  #switch {
+    display:block;
+    cursor: pointer;
+    height:calc(100% - 20px);
+    margin: 10px;
+    min-width:70px;
+    box-sizing: border-box;
+    border: 2px white solid;
+    text-align: center;
+    line-height: 500px;
+    .click-switch {
+      vertical-align: middle;
+      font-size: 4em;
+      color:white;
+    }
+  }
+  #switch:hover{
+    background-color:rgba(white,0.5);
+    .click-switch {
+       color:#56338e;
+    }
+  }
+}
+
+#xsBox{
+  position:relative;
+  width:100%;
+  height:calc(100% - #{$footerHeight} - #{$headerHeight} - 20px);
+  #switch2 {
+    display:inline-block;
+    cursor: pointer;
+    height:100%;
+    margin: 10px;
+    width:70px;
+    border: 2px white solid;
+    text-align: center;
+    line-height: 500px;
+    .click-switch {
+      vertical-align: middle;
+      font-size: 4em;
+      color:white;
+    }
+    &:hover {
+      background-color:rgba(white,0.5);
+      .click-switch {
+         color:#56338e;
+      }
+    }
+  }
+  .xs-info {
+    position:absolute;
+    min-width: 203px;
+    top:0;
+    left:94px;
+    height: 100%;
+    width:calc(100% - 100px);
+    margin: 10px auto;
+    .channel-headers {
+      overflow: hidden;
+      background-color: #1d0140;
+      padding:0 20px;
+      position:relative;
+      border-radius: .5em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .channel-name {
+      font-family:"Molot";
+      padding-bottom:40px;
+      position:relative;
+      white-space: nowrap;
+      color:#6441a5;
+      font-size: 4em;
+      font-weight: bolder;
+      margin: 0 auto;
+    }
+    .stream-title {
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:5px;
+      font-size:1em;
+      white-space: nowrap;
+      border-radius: .5em;
+      margin: 0 auto;
+      text-align: center;
+      opacity: 0.5;
+      color:white;
+    }
+  }
+  .table-label {
+    background: linear-gradient(#606062, #28262b);
+    border-radius: .2em;
+    box-shadow: 0 0 .5em #000;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 auto;
+    font-size:1.5em;
+    font-weight: bold;
+    color:white;
+    border-bottom: 1px black white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  .stream-data-row {
+    background-color:#1d0140;
+    margin:0 auto;
+    text-align: center;
+    color:#705e86;
+  }
+  .game-logo {
+    width: 143px;
+    height: 200px;
+    min-height: 200px;
+    margin-top:0;
+    box-sizing: border-box;
+  }
+  .preview-box {
+    margin-top: 10px;
+
+    box-sizing: border-box;
+    max-height: 200px;
+    overflow:hidden;
+    .preview {
+      width:100%;
+      min-height: 200px;
+    }
+  }
+  .preview-text {
+    background-color: white;
+    font-size:1.2em;
+    text-align: center;
+    white-space: normal;
+    min-width: 212px;
+  }
+}
+
+#myFooter {
+  box-sizing: border-box;
+  padding-top:10px;
+  background-color: #eeeeee;
+  height: $footerHeight;
+  bottom:0;
+  left:0;
+  right:0;
+  position:absolute;
+  text-align:center;
+  i {
+    margin-left:1em;
+    margin-right:1em;
+  }
+}
