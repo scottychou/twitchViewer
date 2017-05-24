@@ -1,8 +1,3 @@
-http://encycolorpedia.com/6441a5 for twitch colors
-#6441a5 is original purple color
-#9bbe5a is inverted color.
-#815fc0 is 25% lighter, thinking about using this as a highlighted streamer color.
-Along with linear gradient.
-
-clientID = eip5xd0aed00o0kf27l8tjzabthn51f
-http://uigradients.com/#Twitch
+● An application that quickly displays a list of my favorite twitch.tv streamers via the Twitch.tv API and ability to filter for online/offline streamers .   
+● Upon clicking a streamer, the page is filled with statistics and images of the stream, based on the width of the window - I designed this responsively with custom breakpoints and pure vanilla CSS.
+●This is a 100% Front End Project to display my HTML5,CSS3, SCSS and JavaScript/JQuery ability.
